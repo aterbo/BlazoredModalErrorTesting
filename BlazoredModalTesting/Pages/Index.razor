@@ -1,0 +1,75 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Testing Blazored with Max Height and Max Width
+<br />
+<button @onclick="@(ShowModalNormal)" class="btn btn-primary">View Component with No Styling</button>
+<br /><br />
+<button @onclick="@(ShowModalWithHWZBkg)" class="btn btn-primary">View Component with modal-maxh-maxw-zindex-bkg</button>
+<br /><br />
+<button @onclick="@(ShowModalWithHWZ)" class="btn btn-primary">View Component with modal-maxh-maxw-zindex</button>
+<br /><br />
+<button @onclick="@(ShowModalWithHW)" class="btn btn-primary">View Component with modal-maxh-maxw</button>
+<br /><br />
+<button @onclick="@(ShowModalWithH)" class="btn btn-primary">View Component with modal-maxh</button>
+<br /><br />
+
+
+@code {
+    [CascadingParameter] public IModalService Modal { get; set; }
+
+    void ShowModalNormal()
+    {
+        var options = new ModalOptions()
+        {
+            ContentScrollable = true
+        };
+
+        Modal.Show<ModalComponent>("Header From Blazored Modal", options);
+    }
+
+    void ShowModalWithHWZBkg()
+    {
+        var options = new ModalOptions()
+        {
+            Class = "modal-maxh-maxw-zindex-bkg",
+            ContentScrollable = true
+        };
+
+        Modal.Show<ModalComponent>("Header From Blazored Modal", options);
+    }
+
+    void ShowModalWithHWZ()
+    {
+        var options = new ModalOptions()
+        {
+            Class = "modal-maxh-maxw-zindex",
+            ContentScrollable = true
+        };
+
+        Modal.Show<ModalComponent>("Header From Blazored Modal", options);
+    }
+
+    void ShowModalWithHW()
+    {
+        var options = new ModalOptions()
+        {
+            Class = "modal-maxh-maxw",
+            ContentScrollable = true
+        };
+
+        Modal.Show<ModalComponent>("Header From Blazored Modal", options);
+    }
+
+    void ShowModalWithH()
+    {
+        var options = new ModalOptions()
+        {
+            Class = "modal-maxh",
+            ContentScrollable = true
+        };
+
+        Modal.Show<ModalComponent>("Header From Blazored Modal", options);
+    }
+}
